@@ -1,0 +1,177 @@
+毕业论文：语言设计
+2.3
+1、
+import java.util.Scanner;
+
+public class Hello {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int BJT;
+		int UTC=0;
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter a time:");
+		BJT = in.nextInt();
+		if(BJT%100<60&&BJT%100>=0)
+		{
+			if(BJT >=800 && BJT >= 2359&&BJT%1000<400)
+			{
+				UTC=(BJT/100-8)*100+(BJT-(BJT/100)*100);
+			}
+			else if(BJT>0&&BJT<800)
+			{
+				UTC=800-BJT;
+				System.out.println("前一天");
+			}
+		}
+		else
+		{
+			System.out.println("error");
+		}
+		System.out.println("UTC="+UTC);
+		}
+}
+2.3
+2、
+import java.util.Scanner;
+
+public class Hello {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int x;
+		Scanner in = new Scanner (System.in);
+		System.out.println("输入一个数字：");
+		x=in.nextInt();
+		switch(x%10) 
+		{
+		case 1:
+			System.out.print("Faint signals, barely perceptible,");
+			break;
+		case 2:
+			System.out.print("Very weak signals,");
+			break;
+		case 3:
+			System.out.print("Weak signals,");
+			break;
+		case 4:
+			System.out.print("Fair signals,");
+			break;
+		case 5:
+			System.out.print("Fairly good signals,");
+			break;
+		case 6:
+			System.out.print("Good signals,");
+			break;
+		case 7:
+			System.out.print("Moderately strong signals,");
+			break;
+		case 8:
+			System.out.print("Strong signals,");
+			break;
+		case 9:
+			System.out.print("Extremely strong signals,");
+			break;
+		}
+		switch(x/10)
+		{
+		case 1:
+			System.out.print("unreadable");
+			break;
+		case 2:
+			System.out.print("barely readable, occasional words distinguishable");
+			break;
+		case 3:
+			System.out.print("readable with considerable difficulty");
+			break;
+		case 4:
+			System.out.print("readable with practically no difficulty");
+			break;
+		case 5:
+			System.out.print("perfectly readable");
+			break;
+		default:
+			System.out.println("error");
+		}
+	}
+}
+1、
+import java.util.Scanner;
+
+public class Hello {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner in = new Scanner(System.in);
+		int bjt;
+		int gewei, shiwei;
+		bjt = in.nextInt();
+		gewei = bjt % 10;
+		shiwei = bjt % 100 / 10;
+		bjt = bjt / 100;
+		if(bjt < 8){
+			bjt = (bjt + 24 - 8);
+			System.out.print(bjt);
+			System.out.print(shiwei);
+			System.out.println(gewei);
+		}
+		else if(bjt == 8)
+		{
+			if(shiwei != 0)
+			System.out.print(shiwei);
+			System.out.println(gewei);
+		}
+		else if(bjt > 8){
+			System.out.print(bjt - 8);
+			System.out.print(shiwei);
+			System.out.println(gewei);
+		}
+		}
+}
+3、小游戏 猜数字
+import java.util.Scanner;
+
+public class Hello {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		小游戏 猜数字
+		Scanner in = new Scanner(System.in);
+		int number=(int)(Math.random()*100+1); //[0,1)-->[0,100)-->[1,101)-->[1,100]
+		int count=0;
+		int a;
+		do{
+			a=in.nextInt();
+			count=count+1;
+			if(a>number)
+			{
+				System.out.println("偏大");
+			}
+			else if(a<number)
+			{
+				System.out.println("偏小");
+			}
+		}while(a!=number);
+		System.out.println("恭喜你猜对了！，你猜了"+count+"次");
+		}
+}
+4、整数分解
+import java.util.Scanner;
+
+public class Hello {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner in = new Scanner (System.in);
+		int number=in.nextInt();
+		int a=0;
+		do{
+			int b=number%10;
+			System.out.print(b);
+			a=a*10+b;
+			number=number/10;
+		}while(number>0);
+		System.out.println();
+		System.out.println(a);
+		}
+}
